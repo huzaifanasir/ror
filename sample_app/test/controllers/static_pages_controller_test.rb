@@ -5,7 +5,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
     @base_title = "Ruby on Rails Tutorial Sample App"
   end
-  # base_title = "Ruby on Rails Tutorial Sample App"
+
+  test "should get root" do
+    get root_url
+    assert_response :success
+  end
 
   test "should get home" do
     get static_pages_home_url
@@ -23,7 +27,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get static_pages_about_url
     assert_response :success
     assert_select "title", "About | #{@base_title}"
-  end 
+  end
 
 
 
